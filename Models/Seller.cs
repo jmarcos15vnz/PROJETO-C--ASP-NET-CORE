@@ -16,10 +16,10 @@ namespace SalesWebMvc.Models
 
         [Required(ErrorMessage = "{0} Required")]
         [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Enter a valid Email")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "{0} Required")]
-        [EmailAddress(ErrorMessage ="Enter a valid Email")]
         [Display(Name = "Birth Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
@@ -31,6 +31,7 @@ namespace SalesWebMvc.Models
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
+        [Display(Name="Department")]
         public int DepartmentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
